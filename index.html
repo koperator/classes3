@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top-Down Zombie Shooter</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Load Pathfinding Library FIRST -->
+    <script src="pathfinding-browser.min.js"></script>
+
+    <!-- Asset Manager (MUST be before files that use it or define assets for it) -->
+    <script src="asset_manager.js"></script>
+
+    <!-- Load Game Files - DEFER ensures execution order AFTER HTML parsing -->
+    <!-- Core & Utilities -->
+    <script defer src="constants.js"></script> <!-- Defines TILE, TurretState, TURRET_SIZE etc. -->
+    <script defer src="utils.js"></script>
+
+    <!-- Game Setup (Defines GameState, global asset vars) - Needs to be early -->
+    <script defer src="game_setup.js"></script>
+
+    <!-- Sound System -->
+    <script defer src="sounds.js"></script>
+
+    <!-- Level System -->
+    <script defer src="level_assets.js"></script>
+    <script defer src="level_helpers_urban.js"></script>
+    <script defer src="level_generator.js"></script>
+    <script defer src="level_render_fog.js"></script>
+
+    <!-- Powerups -->
+    <script defer src="powerup.js"></script>
+
+    <!-- ===================================================================== -->
+    <!-- CORE ENTITY DEFINITIONS (MUST be BEFORE files that use them) -->
+    <!-- ===================================================================== -->
+    <script defer src="drone.js"></script>
+    <script defer src="turret.js"></script>            <!-- Defines Turret, TurretState -->
+    <script defer src="zombie_sprites.js"></script>
+    <script defer src="zombie_class.js"></script>
+    <script defer src="mercenary.js"></script>          <!-- Defines Mercenary -->
+    <script defer src="player_core.js"></script>       <!-- Defines Player -->
+    <!-- Player combat might be needed by abilities if they trigger combat actions -->
+    <script defer src="player_combat.js"></script>
+
+    <!-- ===================================================================== -->
+    <!-- PARTICLE & PROJECTILE DEFINITIONS (Load AFTER core entities) -->
+    <!-- These define Grenade, RPGProjectile etc. that abilities might use -->
+    <!-- ===================================================================== -->
+    <script defer src="particles.js"></script>
+    <script defer src="projectile_base.js"></script>
+    <script defer src="projectile_types.js"></script>   <!-- Defines Grenade, RPGProjectile -->
+    <script defer src="projectile_effects.js"></script>
+
+    <!-- ===================================================================== -->
+    <!-- PLAYER ABILITIES (Load AFTER Player, Turret, Projectile types etc.) -->
+    <!-- ===================================================================== -->
+    <script defer src="player_abilities.js"></script>  <!-- Uses Turret, Grenade, RPGProjectile etc. -->
+
+
+    <!-- Game Logic Subsystems -->
+    <script defer src="minimap.js"></script>
+    <script defer src="ui.js"></script>
+    <script defer src="spawner.js"></script>
+
+    <!-- Main Game Logic & Loop (These should be among the last) -->
+    <script defer src="game_loop.js"></script>
+    <script defer src="game_logic.js"></script> <!-- initScreen() here will be called -->
+
+</head>
+<body>
+    <canvas id="gameCanvas" width="1920" height="1080"></canvas>
+</body>
+</html>

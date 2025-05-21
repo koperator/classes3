@@ -1,0 +1,28 @@
+/* --- START OF FILE style.css --- */
+
+@font-face {
+    font-family: 'PixelOperatorBold';
+    src: url('PixelOperator-Bold.ttf') format('truetype'); /* Ensure this path is correct! */
+    font-weight: normal; /* Typically, a bold variant would be 'bold', but if the TTF is already bold, 'normal' might be how it's registered. Test this. */
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'PixelOperatorBold', Arial, sans-serif;
+}
+
+canvas {
+    border: 1px solid white;
+    background-color: #111; /* Dark background for the game area */
+    display: block; /* Removes potential extra space below canvas */
+    /* The font-family here primarily affects default browser text on canvas, not fillText directly */
+    /* fillText requires ctx.font to be set */
+}
+/* --- END OF FILE style.css --- */
